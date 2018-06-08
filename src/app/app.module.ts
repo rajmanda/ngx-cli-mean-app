@@ -4,21 +4,33 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ToastrModule, ToastContainerModule  } from 'ngx-toastr';
+
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'inline', 
+      //positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
+    ToastContainerModule,
     CarouselModule.forRoot(),
+    AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
