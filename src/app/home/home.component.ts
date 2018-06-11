@@ -6,7 +6,6 @@ import { setTheme } from 'ngx-bootstrap/utils';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { ToastContainerDirective, ToastrService } from 'ngx-toastr';
 
 
 
@@ -28,14 +27,13 @@ import { ToastContainerDirective, ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent {
 
-  @ViewChild(ToastContainerDirective) toastContainer: ToastContainerDirective;
   title = 'app';
   videos: Array<Video>;
   slides = [];
   noWrapSlides = true;
   myInterval = 0;
 
-  constructor(private _videoService: VideoService, private toastr: ToastrService) {
+  constructor(private _videoService: VideoService) {
     setTheme('bs4'); // or 'bs4'
   }
 
@@ -69,8 +67,7 @@ export class HomeComponent {
   }
 
   slideshow() {
-    this.toastr.success('starting slide show');
-  
+     
     if (this.noWrapSlides) {
       console.log('starting slide show');
       this.noWrapSlides = false;

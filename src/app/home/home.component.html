@@ -1,5 +1,5 @@
 <div class="container">
-  <div toastContainer></div>
+  
   <button *ngIf="noWrapSlides" (click)="slideshow()">Start Slide Show</button>
   <button *ngIf="!noWrapSlides" (click)="slideshow()">Stop Slide Show</button>
   <button (click)="rotate()">Rotate</button>
@@ -22,6 +22,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </slide>
   </carousel>
