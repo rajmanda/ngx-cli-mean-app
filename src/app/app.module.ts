@@ -9,6 +9,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { VideoCenterComponent } from './video-center/video-center.component';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -26,6 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     HttpModule,
     ToastrModule.forRoot(),
+    ButtonsModule.forRoot(),
     CarouselModule.forRoot(),
     AppRoutingModule
 
