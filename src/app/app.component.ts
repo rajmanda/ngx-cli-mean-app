@@ -9,6 +9,6 @@ import { setTheme } from 'ngx-bootstrap/utils';
 export class AppComponent {
   title = 'app works!';
   constructor() {
-    setTheme('bs4'); // or 'bs4'
+    setTheme('bs3'); // or 'bs4'
   }
 }
