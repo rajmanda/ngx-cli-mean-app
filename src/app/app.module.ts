@@ -20,6 +20,7 @@ import { VideoDetailComponent } from './video-detail/video-detail.component';
 import { SafePipe } from './safe.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
+import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
     VideoListComponent,
     VideoDetailComponent,
     SafePipe,
+    ConfirmPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +44,9 @@ import { ToastrModule } from 'ngx-toastr';
     CollapseModule.forRoot(),
     ModalModule.forRoot(),
     AppRoutingModule
-
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmPasswordComponent],
 })
 export class AppModule { }

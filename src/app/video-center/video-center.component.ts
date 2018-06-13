@@ -37,7 +37,6 @@ export class VideoCenterComponent implements OnInit {
 
   onSelectVideo(video: any) {
     this.selectedVideo = video;
-    console.log(this.selectedVideo);
   }
 
   newVideo() {
