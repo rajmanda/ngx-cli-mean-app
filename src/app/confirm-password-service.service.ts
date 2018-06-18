@@ -11,6 +11,18 @@ export class ConfirmPasswordServiceService {
 
   confirmPassword(message: string): Promise<any> {
     const modal = this.bsModalService.show(ConfirmPasswordComponent, { initialState: { message: message } });
-    return new Promise<any>((resolve, reject) => modal.content.password.subscribe((result) => resolve(result)));
+    //return new Promise<any>((resolve, reject) => modal.content.password.subscribe((result) => resolve(result)));
+    return new Promise<any>((resolve, reject) =>
+      modal.content.password.subscribe(
+        result => {
+          resolve(result);
+        },
+        err => {
+          reject(err);
+        },
+        () => {
+          console.log(`We're done here!`);
+        }
+      ));
   }
 }

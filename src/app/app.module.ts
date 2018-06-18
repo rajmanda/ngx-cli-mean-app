@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+  import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,6 +21,7 @@ import { SafePipe } from './safe.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
 import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
+import { StudentFormComponent } from './student-form/student-form.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ConfirmPasswordComponent } from './confirm-password/confirm-password.co
     VideoDetailComponent,
     SafePipe,
     ConfirmPasswordComponent,
+    StudentFormComponent,
   ],
   imports: [
     BrowserModule,

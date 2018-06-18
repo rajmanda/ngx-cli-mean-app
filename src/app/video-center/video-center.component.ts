@@ -39,6 +39,20 @@ export class VideoCenterComponent implements OnInit {
     this.selectedVideo = video;
   }
 
+  onUpdateFailedVideoEvent(video: any) {
+    this._videoService.getVideos()
+      .subscribe(resVideoData => {
+        this.videos = resVideoData;
+        let videoArray = this.videos;
+        for (let i = 0; i < videoArray.length; i++) {
+          if (videoArray[i]._id === video._id) {
+            this.onSelectVideo(videoArray[i]);
+          }
+        }
+      });
+
+  }
+
   newVideo() {
     this.hidenewVideo = false;
   }
@@ -71,7 +85,7 @@ export class VideoCenterComponent implements OnInit {
 
     this._videoService.updateVideo(video)
       .subscribe(resUpdatedVideo => video = resUpdatedVideo);
-    this.selectedVideo = null;
+    this.selectedVideo = video;
   };
 
   onDeleteVideoEvent(video: any) {

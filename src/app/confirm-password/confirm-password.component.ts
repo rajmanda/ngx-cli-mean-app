@@ -13,12 +13,20 @@ export class ConfirmPasswordComponent  {
 
   message: string;
   password: Subject<String> = new Subject<String>();
+  //err: {message: string };
 
   constructor(private modalRef: BsModalRef) { }
 
-  confirmPass(password: String): void {
-    this.password.next(password);
-    this.modalRef.hide();
+  confirmPass(password: any): void {
+    //console.log("password.length", password.password.length);
+    if (password.password.length == 0 ) {
+      this.password.error("Opps - password cannot be empty");
+      this.modalRef.hide();
+    } else {
+      this.password.next(password);
+      this.modalRef.hide();
+    }
+
   }
   decline(): void {
     this.modalRef.hide();
