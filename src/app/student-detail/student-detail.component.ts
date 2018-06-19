@@ -4,35 +4,34 @@ import { TemplateRef } from "@angular/core";
 import { ConfirmPasswordComponent } from "src/app/confirm-password/confirm-password.component";
 import { ConfirmPasswordServiceService } from "src/app/confirm-password-service.service";
 import { OnChanges } from "@angular/core";
-import { Video } from "src/app/video";
+import { Student } from '../student';
 import { SimpleChanges } from "@angular/core";
 
 @Component({
-  selector: 'video-detail',
-  templateUrl: './video-detail.component.html',
-  styleUrls: ['./video-detail.component.css'],
-  inputs: ['video'],
-  outputs: ['updateVideoEvent', 'deleteVideoEvent', 'updateFailedVideoEvent']
+  selector: 'student-detail',
+  templateUrl: './student-detail.component.html',
+  styleUrls: ['./student-detail.component.css'],
+  inputs: ['student'],
+  outputs: ['updateStudentEvent', 'deleteStudentEvent', 'updateFailedStudentEvent']
 })
-export class VideoDetailComponent implements OnInit , OnChanges {
+export class StudentDetailComponent implements OnInit, OnChanges {
   $scope: any;
-  video: Video;
-  videoCopy: Video;
+  student: Student;
 
   private editTitle: boolean = false;
-  private updateVideoEvent = new EventEmitter();
-  private deleteVideoEvent = new EventEmitter();
-  private updateFailedVideoEvent = new EventEmitter();
+  private updateStudentEvent = new EventEmitter();
+  private deleteStudentEvent = new EventEmitter();
+  private updateFailedStudentEvent = new EventEmitter();
 
-  public  password: string;
+  public password: string;
 
   constructor(
-        private toastr: ToastrService,
-        private confirmPasswordService: ConfirmPasswordServiceService
-    ) { }
+    private toastr: ToastrService,
+    private confirmPasswordService: ConfirmPasswordServiceService
+  ) { }
 
   ngOnInit() {
-    
+
   }
 
   onTitleClick() {
@@ -43,15 +42,15 @@ export class VideoDetailComponent implements OnInit , OnChanges {
 
   }
 
-  async updateVideo() {
+  async updateStudent() {
     await this.confirmPasswordService.confirmPassword('Please confirm password to proeceed.')
-    .then(response => {
-      this.password = response.password;
-      this.checkPasswordAndUpdate();
-    }).catch(e => {
-      this.toastr.warning('Password supplied is empty. Not updating.....');
-      this.updateFailedVideoEvent.emit(this.video);
-    });
+      .then(response => {
+        this.password = response.password;
+        this.checkPasswordAndUpdate();
+      }).catch(e => {
+        this.toastr.warning('Password supplied is empty. Not updating.....');
+        this.updateFailedStudentEvent.emit(this.student);
+      });
 
 
     /*
@@ -64,20 +63,20 @@ export class VideoDetailComponent implements OnInit , OnChanges {
     */
   }
 
-  deleteVideo() {
-    this.deleteVideoEvent.emit(this.video);
+  deleteStudent() {
+    this.deleteStudentEvent.emit(this.student);
   }
 
-  
+
   checkPasswordAndUpdate() {
-    if(this.password === this.video.password) {
+    if (this.password === this.student.password) {
       this.toastr.success('Password matched. updating.....');
-      this.updateVideoEvent.emit(this.video);
+      this.updateStudentEvent.emit(this.student);
     } else {
-      
+
       this.toastr.error("Password doesn't match - try again....");
       //console.log("back - copying videoCopy", this.videoCopy);
-      
+
       //console.log("back - copying video", this.video);
       /*
       this.updateFailedVideoEvent.emit(this.video);

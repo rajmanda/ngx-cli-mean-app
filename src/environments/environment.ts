@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  _getUrl: "http://localhost:3000/api/videos",
-  _postUrl: "http://localhost:3000/api/image",
-  _putUrl: "http://localhost:3000/api/video/",
-  _deleteUrl: "http://localhost:3000/api/video/"
+  _getUrl: "http://localhost:3000/studentapi/students",
+  _postUrl: "http://localhost:3000/studentapi/image",
+  _putUrl: "http://localhost:3000/studentapi/student/",
+  _deleteUrl: "http://localhost:3000/studentapi/students/"
 };
 
 /*

@@ -14,25 +14,26 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { ModalModule } from 'ngx-bootstrap';
 
-import { VideoCenterComponent } from './video-center/video-center.component';
-import { VideoListComponent } from './video-list/video-list.component';
-import { VideoDetailComponent } from './video-detail/video-detail.component';
+
 import { SafePipe } from './safe.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
 import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
 import { StudentFormComponent } from './student-form/student-form.component';
+import { StudentCenterComponent } from './student-center/student-center.component';
+import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { StudentListComponent } from './student-list/student-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    VideoCenterComponent,
-    VideoListComponent,
-    VideoDetailComponent,
     SafePipe,
     ConfirmPasswordComponent,
     StudentFormComponent,
+    StudentCenterComponent,
+    StudentDetailComponent,
+    StudentListComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,17 +8,17 @@
 
   <carousel [noWrap]="noWrapSlides" [interval]="myInterval" (activeSlideChange)="log($event)">
 
-    <slide *ngFor="let slide of videos; let index=index">
+    <slide *ngFor="let slide of students; let index=index">
       <div class="text-center py-5 bg-dark text-white">
         <div class="row">
           <div class="col-sm-9">
             <img [@rotatedState]='state' [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
           </div>
           <div class="col-sm-3">
-            <h2>{{slide.title}}</h2>
+            <h2>{{slide.name}}</h2>
             <div class="lead">
-              <h3>{{slide.url}}</h3>
-              <p>{{slide.description}}</p>
+              <h3>{{slide.school}}</h3>
+              <p>{{slide.achievement}}</p>
             </div>
           </div>
         </div>

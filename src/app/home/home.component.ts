@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { VideoService } from '../video.service.js';
-import { Video } from '../video';
+//import { VideoService } from '../video.service.js';
+import { StudentService } from '../student.service.js';
+import { Student } from '../student';
 import { Slide } from '../slide';
 import { setTheme } from 'ngx-bootstrap/utils';
 import { Observable } from 'rxjs';
@@ -28,20 +29,21 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export class HomeComponent {
 
   title = 'app';
-  videos: Array<Video>;
+  students: Array<Student>;
   slides = [];
   noWrapSlides = true;
   myInterval = 0;
 
-  constructor(private _videoService: VideoService) {
+  constructor(private _studentService: StudentService) {
     setTheme('bs4'); // or 'bs4'
   }
 
   ngOnInit() {
-    this._videoService.getVideos()
-      .subscribe(resVideoData => {
-        this.videos = resVideoData;
-        this.videos.forEach((item, index) => {
+    this._studentService.getStudents()
+      .subscribe(resStudentData => {
+        console.log("resStudentData", resStudentData);
+        this.students = resStudentData;
+        this.students.forEach((item, index) => {
           let slide = new Slide();
           slide.image = item.image;
           this.slides.push(slide);

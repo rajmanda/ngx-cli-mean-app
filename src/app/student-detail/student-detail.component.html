@@ -1,0 +1,23 @@
+<div>
+  <iframe width="100%" height="400" [src]="student.image | safe" frameborder="0" allowfullscreen> </iframe>
+</div>
+<div>
+  <form>
+    <h3 *ngIf="!editTitle" (click)="onTitleClick()">{{student.name}}</h3>
+    <div *ngIf="editTitle" class="form-group">
+      <input type="input" class="form-control" name="name" required placeholder="name"
+             [(ngModel)]="student.name">
+    </div>
+    <div class="form-group">
+      <input type="input" class="form-control" name="school" required placeholder="school"
+             [(ngModel)]="student.school">
+    </div>
+    <div class="form-group">
+      <textarea class="form-control" rows="5" name="desc" [(ngModel)]="student.achievement">
+            </textarea>
+    </div>
+    <button type="button" (click)="updateStudent()" class="btn btn-primary">Update</button>
+    <button type="button" (click)="deleteStudent()" class="btn btn-danger">Delete</button>
+
+  </form>
+</div>
